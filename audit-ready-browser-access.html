@@ -5,10 +5,29 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Audit-Ready Browser Access Evidence (Privacy-First)</title>
+  <title>Audit-Ready Browser Access Evidence (Privacy-First Telemetry)</title>
   <meta name="description"
     content="Audit-ready browser access evidence using policy-minimized endpoint telemetry (active tab only, domain-level by default). Designed for compliance, not employee surveillance." />
   <link rel="canonical" href="https://policy-first-telemetry.github.io/home/audit-ready-browser-access.html">
+
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#0d6efd" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Policy-First Telemetry" />
+  <meta property="og:title" content="Audit-Ready Browser Access Evidence (Privacy-First Telemetry)" />
+  <meta property="og:description"
+    content="Produce audit-ready evidence of browser access using policy-minimized endpoint telemetry. Active tab only. Domain-level by default. No screenshots, no keystrokes, no page content." />
+  <meta property="og:url" content="https://policy-first-telemetry.github.io/home/audit-ready-browser-access.html" />
+  <!-- Optional: add an OG image once you have a stable asset -->
+  <!-- <meta property="og:image" content="https://policy-first-telemetry.github.io/home/assets/img/og-audit-ready-browser-access.png" /> -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Audit-Ready Browser Access Evidence (Privacy-First Telemetry)" />
+  <meta name="twitter:description"
+    content="Audit-ready browser access evidence without employee surveillance. Policy-minimized endpoint telemetry: active tab only, domain-level by default." />
 
   <link href="https://cdn.jsdelivr.net" rel="preconnect" />
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -19,6 +38,75 @@
   <link href="assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png" />
   <link href="assets/img/favicon-16.png" rel="icon" sizes="16x16" type="image/png" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Policy-First Telemetry",
+    "url": "https://policy-first-telemetry.github.io/",
+    "description": "Policy-minimized telemetry for audit-ready browser access evidence (privacy-first)."
+  }
+</script>
+
+  <!-- Structured data: FAQ (matches the accordion content) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What exactly do you collect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only what policy allows. Default is active tab domain only, with optional tab labels. No screenshots, keystrokes, or page content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you exclude personal or sensitive sites?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Exclusions and redaction rules are first-class, and applied before storage/upload."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it capture background tabs or full browsing history?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The design is intentionally limited (active tab only) to keep minimization defensible and reduce risk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who can view the data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Intended: role-based access control and access audit logs. This page is for early validation of requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from employee browser monitoring tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Traditional monitoring tools maximize visibility via screenshots/content capture and full history. This approach maximizes privacy and defensibility while still supporting audit/compliance evidence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this intended for employee performance monitoring or discipline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The intended use is audit, compliance, and risk documentation. It is explicitly designed to avoid continuous monitoring, productivity scoring, or behavioral analysis."
+        }
+      }
+    ]
+  }
+</script>
 </head>
 
 <body id="top">
@@ -32,6 +120,8 @@
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#problem">Problem</a></li>
+          <li class="nav-item"><a class="nav-link" href="#compliance-mapping">Compliance</a></li>
+          <li class="nav-item"><a class="nav-link" href="#audit-questions">Audit questions</a></li>
           <li class="nav-item"><a class="nav-link" href="#solution">Solution</a></li>
           <li class="nav-item"><a class="nav-link" href="#policy">Policy</a></li>
           <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
@@ -52,7 +142,8 @@
           <p class="small text-uppercase text-secondary mb-2">For IT, Security, and Compliance teams in audit-sensitive
             environments</p>
           <p class="lead text-secondary mb-4">
-            Produce audit-ready evidence of browser access using <span class="fw-semibold">policy-minimized endpoint
+            Produce <strong>audit-ready browser access evidence</strong> using <span
+              class="fw-semibold">policy-minimized endpoint
               telemetry</span>.
             Collection is limited by design: active tab only, domain-level by default.
             No screenshots. No keystrokes. No page content.
@@ -177,6 +268,99 @@
               </div>
               <h3 class="h6 fw-semibold mb-2">Audit‑ready outputs</h3>
               <p class="text-secondary mb-0">Searchable events, exports, and access logs (planned).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-5 border-top bg-body" id="compliance-mapping">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-3">Compliance mapping (why this exists)</h2>
+          <p class="text-secondary mb-0">
+            Many teams don’t need “employee browser monitoring.” They need <strong>audit evidence</strong> that web
+            access
+            followed policy during a defined window. This section explains how privacy-first, policy-minimized telemetry
+            can support common audit and compliance workflows.
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-2">Typical evidence outcomes</h3>
+              <ul class="text-secondary mb-0 ps-3">
+                <li><strong>Access logs</strong> that show allowed/denied access at a domain level (default).</li>
+                <li><strong>Policy-bounded collection</strong> that avoids screenshots, keystrokes, and page content.
+                </li>
+                <li><strong>Defensible minimization</strong> and exclusions applied on the endpoint before
+                  storage/upload.</li>
+                <li><strong>Exportable reports</strong> for auditors and internal reviews (planned).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row g-3 mt-1">
+            <div class="col-md-6">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <h3 class="h6 fw-semibold mb-2">SOC 2 (Security)</h3>
+                  <p class="text-secondary mb-0">
+                    Supports evidence for access control and monitoring narratives by providing policy-bounded browser
+                    access
+                    events without surveillance capture.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <h3 class="h6 fw-semibold mb-2">ISO/IEC 27001</h3>
+                  <p class="text-secondary mb-0">
+                    Supports logging/monitoring and access management evidence, especially when auditors ask “how do you
+                    show web access followed policy?”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="small text-secondary mt-3 mb-0">
+            Note: This page is not legal advice. Organizations typically document scope and notify employees as required
+            by
+            applicable law and internal governance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-5 border-top bg-body" id="audit-questions">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-3">Audit questions this can help answer</h2>
+          <p class="text-secondary mb-0">
+            These are example prompts auditors (or internal reviewers) ask when they expect evidence of policy-compliant
+            web
+            access. The intent is to produce evidence without turning into employee surveillance.
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="h6 fw-semibold mb-2">Examples</h3>
+              <ul class="text-secondary mb-0 ps-3">
+                <li>During the audit window, did endpoints access only <strong>approved SaaS domains</strong>?</li>
+                <li>Can you show evidence that <strong>restricted categories</strong> were excluded from collection?
+                </li>
+                <li>Can you demonstrate that minimization rules were applied <strong>on the endpoint</strong>?</li>
+                <li>Can you export a report of domain-level access events for a defined time period?</li>
+              </ul>
+              <hr class="my-4" />
+              <div class="small text-secondary">
+                Design target: evidence that is specific enough for audits, and limited enough to preserve employee
+                trust.
+              </div>
             </div>
           </div>
         </div>
@@ -499,7 +683,7 @@
                   </div>
                   <div class="col-12 col-md-4">
                     <label class="form-label" for="industry">Industry</label>
-                    <select class="form-select" id="industry" required="">
+                    <select class="form-select" id="industry">
                       <option disabled="" selected="" value="">Select…</option>
                       <option>Financial services / Insurance</option>
                       <option>Accounting / Audit</option>
@@ -512,7 +696,7 @@
                   </div>
                   <div class="col-12 col-md-4">
                     <label class="form-label" for="size">Company size</label>
-                    <select class="form-select" id="size" required="">
+                    <select class="form-select" id="size">
                       <option disabled="" selected="" value="">Select…</option>
                       <option>1–50</option>
                       <option>51–200</option>
@@ -539,7 +723,7 @@
                     <label class="form-label" for="current">How do you handle this today?</label>
                     <textarea class="form-control" id="current"
                       placeholder="Example: manual screenshots, policy documents, no evidence, existing security tooling, etc."
-                      required="" rows="3"></textarea>
+                      rows="3"></textarea>
                     <div class="invalid-feedback">Please answer this question.</div>
                   </div>
                   <div class="col-12">
@@ -547,7 +731,7 @@
                       technical)?</label>
                     <textarea class="form-control" id="blockers"
                       placeholder="Example: any agent install is prohibited; works council requirements; domain-only is insufficient; etc."
-                      required="" rows="3"></textarea>
+                      rows="3"></textarea>
                     <div class="invalid-feedback">Please answer this question.</div>
                   </div>
                   <div class="col-12">
