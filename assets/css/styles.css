@@ -1,5 +1,57 @@
 /* Minimal custom polish layered on Bootstrap */
 
+:root {
+  color-scheme: light;
+}
+
+body {
+  color: #1f2937;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+p,
+li {
+  line-height: 1.65;
+}
+
+.container {
+  max-width: 1140px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section-intro {
+  max-width: 42rem;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  letter-spacing: -0.02em;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+}
+
+.navbar .btn {
+  font-weight: 600;
+}
+
 .hero {
   background: radial-gradient(1200px 500px at 10% 10%, rgba(13, 110, 253, .10), rgba(255, 255, 255, 0)),
     radial-gradient(900px 450px at 90% 20%, rgba(25, 135, 84, .10), rgba(255, 255, 255, 0));
@@ -63,4 +115,68 @@
 
 a {
   text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.btn {
+  border-radius: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.btn-outline-secondary {
+  border-width: 2px;
+}
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.card.shadow-sm {
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08) !important;
+}
+
+.badge {
+  letter-spacing: 0.02em;
+}
+
+.accordion-button {
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  border-radius: 0.65rem;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.45);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.accordion-button:focus-visible,
+.nav-link:focus-visible {
+  box-shadow: none;
+}
+
+footer {
+  background: #f8fafc;
+}
+
+@media (max-width: 767px) {
+  .py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .navbar .btn {
+    width: 100%;
+  }
 }
