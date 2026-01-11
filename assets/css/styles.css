@@ -1,0 +1,66 @@
+/* Minimal custom polish layered on Bootstrap */
+
+.hero {
+  background: radial-gradient(1200px 500px at 10% 10%, rgba(13, 110, 253, .10), rgba(255, 255, 255, 0)),
+    radial-gradient(900px 450px at 90% 20%, rgba(25, 135, 84, .10), rgba(255, 255, 255, 0));
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: rgba(25, 135, 84, .15);
+  border: 1px solid rgba(25, 135, 84, .35);
+  position: relative;
+  flex: 0 0 18px;
+}
+
+.check::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  width: 6px;
+  height: 10px;
+  border: solid rgba(25, 135, 84, .95);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 110, 253, .10);
+  border: 1px solid rgba(13, 110, 253, .20);
+  font-weight: 700;
+}
+
+.policy-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 14px;
+  padding: 12px;
+  background: #fff;
+}
+
+.step-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 110, 253, .10);
+  border: 1px solid rgba(13, 110, 253, .20);
+  font-weight: 700;
+}
+
+a {
+  text-underline-offset: 3px;
+}
