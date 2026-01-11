@@ -5,10 +5,9 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Privacy-First Employee Browser Monitoring for Audit &amp; Compliance</title>
-  <meta
-    content="Privacy-first alternative to employee browser monitoring. Domain-level, active-tab telemetry for audit and compliance. No screenshots or keystrokes."
-    name="description" />
+  <title>Audit-Ready Browser Access Evidence (Privacy-First)</title>
+  <meta name="description"
+    content="Audit-ready browser access evidence using policy-minimized endpoint telemetry (active tab only, domain-level by default). Designed for compliance, not employee surveillance." />
   <link rel="canonical" href="https://policy-first-telemetry.github.io/home/employee-browser-monitoring.html">
 
   <link href="https://cdn.jsdelivr.net" rel="preconnect" />
@@ -22,7 +21,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 </head>
 
-<body>
+<body id="top">
   <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="#">Policy‑First Telemetry</a>
@@ -48,30 +47,46 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-7">
           <p class="badge text-bg-dark rounded-pill mb-3">Concept / early validation</p>
-          <h1 class="display-5 fw-bold lh-sm mb-3">Privacy‑first alternative to employee browser monitoring for audit
-            &amp; compliance</h1>
+          <h1 class="display-5 fw-bold lh-sm mb-3">Audit-ready browser access evidence — without employee surveillance
+          </h1>
           <p class="small text-uppercase text-secondary mb-2">For IT, Security, and Compliance teams in audit-sensitive
             environments</p>
-          <p class="lead text-secondary mb-4">Generate audit-ready evidence of web access using <span
-              class="fw-semibold">policy‑minimized telemetry</span> (active tab only, domain‑level by default). No
-            screenshots. No keystrokes. No page content.</p>
+          <p class="lead text-secondary mb-4">
+            Produce audit-ready evidence of browser access using <span class="fw-semibold">policy-minimized endpoint
+              telemetry</span>.
+            Collection is limited by design: active tab only, domain-level by default.
+            No screenshots. No keystrokes. No page content.
+          </p>
           <div class="d-flex flex-wrap gap-2">
             <a class="btn btn-primary btn-lg" href="#early-access">Request early access</a>
             <a class="btn btn-outline-secondary btn-lg" href="#feedback">Share feedback</a>
           </div>
+          <div class="alert alert-info mt-4 mb-0" role="note">
+            <div class="fw-semibold mb-1">Intended use &amp; trust boundaries</div>
+            <ul class="mb-0 ps-3">
+              <li>Built for audit/compliance evidence — not productivity scoring, behavior profiling, or performance
+                management.</li>
+              <li>Minimization and exclusions are applied <strong>on the endpoint</strong> before any storage or upload.
+              </li>
+              <li>Designed to support transparent policies and employee-facing documentation where required.</li>
+              <li>Organizations typically document and communicate scope to employees per applicable law and internal
+                governance.</li>
+            </ul>
+          </div>
           <p class="small text-secondary mt-3 mb-0">
-            We’re validating whether this solves a real gap. If this is unnecessary or a bad idea, telling us that is
-            helpful.
+            We’re validating whether this solves a real compliance gap. If this is unnecessary, insufficient, or
+            problematic in your environment, that feedback is valuable.
           </p>
         </div>
         <div class="col-lg-5">
           <div class="card shadow-sm border-0">
             <div class="card-body p-4">
-              <h2 class="h5 fw-semibold mb-3">Default collection (by design)</h2>
+              <h2 class="h5 fw-semibold mb-2">Default collection (by design)</h2>
+              <p class="text-secondary small mb-3">Collected solely to support audit and compliance evidence.</p>
               <ul class="list-unstyled mb-0">
                 <li class="d-flex gap-2 mb-2"><span class="check mt-1"></span><span>Active tab domain
                     (configurable)</span></li>
-                <li class="d-flex gap-2 mb-2"><span class="check mt-1"></span><span>Optional tab names
+                <li class="d-flex gap-2 mb-2"><span class="check mt-1"></span><span>Optional application or tab labels
                     (configurable)</span></li>
                 <li class="d-flex gap-2 mb-2"><span class="check mt-1"></span><span>Timestamped events + confidence
                     status</span></li>
@@ -98,8 +113,12 @@
       <div class="row g-4">
         <div class="col-lg-6">
           <h2 class="fw-bold mb-3">The problem</h2>
-          <p class="text-secondary mb-0">Auditors want evidence. Employees want privacy. Existing options often force a
-            bad trade‑off: heavyweight security suites on one side, invasive employee monitoring on the other.</p>
+          <p class="text-secondary mb-0">
+            Auditors and regulators increasingly expect <strong>evidence of policy-compliant web access</strong>.
+            Employees, legal teams, and works councils expect <strong>clear limits, minimization, and
+              transparency</strong>.
+            Existing options often force a poor trade-off between audit defensibility and employee trust.
+          </p>
         </div>
         <div class="col-lg-6">
           <div class="row g-3">
@@ -168,11 +187,14 @@
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-lg-6">
-          <h2 class="fw-bold mb-3">Why teams search for employee browser monitoring</h2>
+          <h2 class="fw-bold mb-3">Why teams look for browser access evidence</h2>
           <p class="text-secondary mb-0">
-            Many organizations look for ways to <strong>monitor employee browser activity</strong> because auditors
-            ask for evidence: access to approved SaaS, proof that restricted sites were not accessed, or confirmation
-            that policies were followed during an audit window.
+            Many organizations search for “employee browser monitoring” when what they actually need is <strong>audit
+              evidence</strong>:
+            proof that approved SaaS was accessed, confirmation that restricted categories were avoided, or
+            documentation that policy controls were followed during a defined audit window.
+            This project starts from the assumption that <strong>most audits do not require surveillance</strong> — they
+            require defensible, policy-bounded evidence.
           </p>
         </div>
         <div class="col-lg-6">
@@ -180,9 +202,9 @@
             <div class="card-body">
               <h3 class="h6 fw-semibold mb-2">The usual trade‑off</h3>
               <p class="text-secondary mb-0">
-                Traditional employee monitoring tools maximize visibility (screenshots, keystrokes, full history) —
-                which can create legal/HR risk and destroy trust. Policy‑First Telemetry explores a different path:
-                <strong>audit evidence without surveillance</strong>.
+                Traditional monitoring tools maximize visibility (screenshots, keystrokes, full history), which can
+                increase legal/HR risk and erode trust.
+                Policy-First Telemetry explores a different path: <strong>audit evidence without surveillance</strong>.
               </p>
             </div>
           </div>
@@ -196,27 +218,25 @@
       <div class="row g-4 align-items-start">
         <div class="col-lg-6">
           <h2 class="fw-bold mb-3">What it is</h2>
-          <p class="text-secondary">A lightweight endpoint agent + admin policy controls + reporting UI that produces
-            <span class="fw-semibold">policy‑approved</span> browser telemetry for audit/compliance workflows — without
-            surveillance-style capture.
+          <p class="text-secondary">
+            A lightweight <strong>endpoint service</strong> + admin policy controls + reporting UI that produces
+            <span class="fw-semibold">policy-approved</span> browser access evidence for audit/compliance workflows —
+            without surveillance-style capture.
           </p>
           <p class="text-secondary">
-            The design assumes an <strong>agent-based approach on Windows endpoints</strong>, avoiding browser
-            extensions and applying minimization before any data is stored or uploaded.
-            The agent leverages
-            <a href="https://learn.microsoft.com/en-us/dotnet/framework/ui-automation/ui-automation-tree-overview"
-              target="_blank" rel="noopener noreferrer">
-              UI Automation Tree
-            </a>
-            to collect data.
+            The design assumes an <strong>endpoint service on Windows</strong>, avoids browser extensions, and applies
+            minimization
+            <strong>before</strong> any data is stored or uploaded. Collection relies on OS-level signals (e.g., UI
+            Automation) rather than content inspection.
           </p>
+
           <div class="card border-0 shadow-sm">
             <div class="card-body">
               <h3 class="h6 fw-semibold mb-3">How it works</h3>
               <ol class="mb-0 text-secondary">
                 <li class="mb-2">Admin sets a policy (domain‑only vs full URL, exclusions, redaction rules, hours,
                   retention).</li>
-                <li class="mb-2">Agent collects only what policy allows (active tab only).</li>
+                <li class="mb-2">Endpoint collects only what policy allows (active tab only).</li>
                 <li>Data is searchable and exportable for audits (with role‑based access; planned).</li>
               </ol>
             </div>
@@ -224,8 +244,11 @@
         </div>
         <div class="col-lg-6">
           <h2 class="fw-bold mb-3">What it is not</h2>
-          <p class="text-secondary">This is not a productivity tracker and not a surveillance tool. The design
-            intentionally avoids screenshots, keystrokes, content capture, and behavioral scoring.</p>
+          <p class="text-secondary">
+            This is <strong>not</strong> a productivity tracker, behavioral analytics system, or surveillance platform.
+            The scope is intentionally limited to avoid categories of data collection that introduce unnecessary legal,
+            privacy, or labor-relations risk.
+          </p>
           <div class="row g-3">
             <div class="col-md-6">
               <div class="card h-100 shadow-sm">
@@ -238,8 +261,8 @@
             <div class="col-md-6">
               <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                  <h3 class="h6 fw-semibold mb-2">No behavioral inference</h3>
-                  <p class="text-secondary mb-0">No “productivity” scoring, no user behavior profiling.</p>
+                  <h3 class="h6 fw-semibold mb-2">No profiling or scoring</h3>
+                  <p class="text-secondary mb-0">No productivity metrics, scoring, or behavioral profiling.</p>
                 </div>
               </div>
             </div>
@@ -254,8 +277,8 @@
             <div class="col-md-6">
               <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                  <h3 class="h6 fw-semibold mb-2">No full history rebuild</h3>
-                  <p class="text-secondary mb-0">Not designed to reconstruct full browsing history.</p>
+                  <h3 class="h6 fw-semibold mb-2">No personal history reconstruction</h3>
+                  <p class="text-secondary mb-0">Not designed to rebuild or infer full browsing history.</p>
                 </div>
               </div>
             </div>
@@ -269,9 +292,13 @@
       <div class="row g-4 align-items-start">
         <div class="col-lg-5">
           <h2 class="fw-bold mb-3">Policy‑first collection</h2>
-          <p class="text-secondary">“Policy‑first” means raw signals are immediately transformed into policy‑approved
-            events: minimize first, redact, exclude — before anything is stored or uploaded. This is how we aim to
-            deliver audit evidence without employee surveillance.</p>
+          <p class="text-secondary">
+            “Policy-first” means raw signals are immediately transformed into policy-approved events: normalize,
+            minimize, redact, and exclude — before anything is stored or uploaded.
+            Importantly, minimization and exclusions occur <strong>on the endpoint</strong>, before any data is written
+            to disk or transmitted.
+            This is how we aim to deliver audit evidence without employee surveillance.
+          </p>
           <div class="alert alert-warning mb-0">
             <div class="fw-semibold">Validation question</div>
             <div>Is domain‑level evidence sufficient for your audits, or do you need more detail?</div>
@@ -322,7 +349,8 @@
               </div>
               <hr class="my-4" />
               <div class="small text-secondary">
-                Note: This page describes a concept under exploration. No agent is being deployed from this site.
+                Note: This page describes a concept under exploration. No endpoint software is being deployed from this
+                site.
               </div>
             </div>
           </div>
@@ -336,7 +364,7 @@
         <div class="col-lg-4">
           <h2 class="fw-bold mb-3">FAQ</h2>
           <p class="text-secondary mb-0">These answers reflect the intended design direction and are part of early
-            validation for a privacy-first alternative to employee browser monitoring.</p>
+            validation for a privacy-first approach to audit-ready browser access evidence.</p>
         </div>
         <div class="col-lg-8">
           <div class="accordion shadow-sm" id="faqAcc">
@@ -349,8 +377,8 @@
               </h3>
               <div aria-labelledby="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc" id="a1">
                 <div class="accordion-body">
-                  Only what policy allows. Default is <strong>active tab domain only</strong>, with optional tab names.
-                  No screenshots, keystrokes, or page content.
+                  Only what policy allows. Default is active tab domain only, with optional tab labels. No screenshots,
+                  keystrokes, or page content.
                 </div>
               </div>
             </div>
@@ -403,8 +431,25 @@
               </h3>
               <div aria-labelledby="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc" id="a5">
                 <div class="accordion-body">
-                  Monitoring tools maximize visibility. This maximizes <strong>privacy + defensibility</strong> while
-                  still supporting audit evidence.
+                  Traditional monitoring tools maximize visibility (often via screenshots, content capture, and full
+                  history).
+                  This approach maximizes <strong>privacy + defensibility</strong> while still supporting
+                  audit/compliance evidence.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="q6">
+                <button aria-controls="a6" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#a6"
+                  data-bs-toggle="collapse" type="button">
+                  Is this intended for employee performance monitoring or discipline?
+                </button>
+              </h3>
+              <div aria-labelledby="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc" id="a6">
+                <div class="accordion-body">
+                  No. The intended use is audit, compliance, and risk documentation. The system is explicitly designed
+                  to avoid continuous monitoring,
+                  productivity scoring, or behavioral analysis.
                 </div>
               </div>
             </div>
@@ -418,9 +463,12 @@
       <div class="row g-4 align-items-start">
         <div class="col-lg-5">
           <h2 class="fw-bold mb-3">Request early access</h2>
-          <p class="text-secondary mb-3">If you evaluate employee browser monitoring tools for audit or compliance
-            reasons, tell us what you’re trying to prove — and what privacy, legal, or technical constraints matter.
-            We’re prioritizing defensible minimization and clarity.</p>
+          <p class="text-secondary mb-3">
+            If you’re asked to produce <strong>audit or compliance evidence related to browser access</strong>, tell us
+            what you’re required to prove —
+            and what privacy, legal, or technical constraints apply in your environment. We’re prioritizing defensible
+            minimization and clarity.
+          </p>
           <div class="card border-0 shadow-sm">
             <div class="card-body">
               <div class="fw-semibold mb-2">Privacy‑safe form disclaimer</div>
@@ -536,9 +584,8 @@
         <div class="col-md-8">
           <div class="small text-secondary">
             <strong>Disclaimer:</strong> This page is maintained by an independent developer and describes a concept
-            under exploration for research and validation purposes.
-            No software is currently being deployed from this site, and no data is collected beyond what you voluntarily
-            submit.
+            under exploration for research and validation.
+            No software is deployed from this site, and no data is collected beyond what you voluntarily submit.
           </div>
         </div>
         <div class="col-md-4 text-md-end">
