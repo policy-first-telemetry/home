@@ -36,6 +36,8 @@ function templateBody(fields) {
 (function () {
   const form = document.getElementById("interestForm");
   const copyLink = document.getElementById("copyTemplate");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navMenu = document.getElementById("primary-nav");
 
   function byId(id) {
     return document.getElementById(id);
@@ -65,11 +67,38 @@ function templateBody(fields) {
     };
   }
 
+  function markInvalid(fieldId, isInvalid) {
+    const field = byId(fieldId);
+    if (!field) return;
+    const wrapper = field.closest(".field");
+    if (!wrapper) return;
+    wrapper.classList.toggle("field--invalid", isInvalid);
+  }
+
   function validate(fields) {
-    // Minimal required set (matches updated HTML):
-    // - auditq required
-    // - consent required
-    return !!(fields.auditq && fields.consent);
+    const invalidRole = !fields.role;
+    const invalidAudit = !fields.auditq;
+    const invalidConsent = !fields.consent;
+
+    markInvalid("role", invalidRole);
+    markInvalid("auditq", invalidAudit);
+    markInvalid("consent", invalidConsent);
+
+    return !(invalidRole || invalidAudit || invalidConsent);
+  }
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = document.body.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
   }
 
   if (!form) return;
@@ -77,9 +106,6 @@ function templateBody(fields) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const fields = getFields();
-
-    // Trigger bootstrap validation styling
-    form.classList.add("was-validated");
 
     if (!validate(fields)) return;
 
