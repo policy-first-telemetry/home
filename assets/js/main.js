@@ -8,21 +8,26 @@ function buildMailto(subject, body) {
 }
 
 function templateBody(fields) {
+  const v = (x, fallback = "(not provided)") => (x && String(x).trim() ? String(x).trim() : fallback);
+
   return [
     "Hello,",
     "",
     "I'm responding to the Policy-First Browser Telemetry validation page.",
     "",
-    `Role: ${fields.role}`,
-    `Industry: ${fields.industry}`,
-    `Company size: ${fields.size}`,
-    //fields.contact ? `Contact email: ${fields.contact}` : "Contact email: (not provided)",
+    `Role: ${v(fields.role)}`,
+    `Industry: ${v(fields.industry)}`,
+    `Company size: ${v(fields.size)}`,
+    //`Contact email: ${v(fields.contact)}`,
     "",
     "1) What audit/compliance question are you trying to answer?",
-    fields.auditq,
+    v(fields.auditq, "(answer here)"),
     "",
-    "2) What would make this a non-starter (legal, privacy, technical)?",
-    fields.blockers,
+    "2) How do you handle this today?",
+    v(fields.current),
+    "",
+    "3) What would make this a non-starter (legal, privacy, technical)?",
+    v(fields.blockers),
     "",
     "Thank you,"
   ].join("\n");
@@ -32,23 +37,42 @@ function templateBody(fields) {
   const form = document.getElementById("interestForm");
   const copyLink = document.getElementById("copyTemplate");
 
+  function byId(id) {
+    return document.getElementById(id);
+  }
+
+  function val(id) {
+    const el = byId(id);
+    if (!el) return "";
+    return (el.value ?? "").trim();
+  }
+
+  function checked(id) {
+    const el = byId(id);
+    return !!(el && el.checked);
+  }
+
   function getFields() {
     return {
-      role: document.getElementById("role").value,
-      industry: document.getElementById("industry").value,
-      size: document.getElementById("size").value,
-      //contact: document.getElementById("contact").value.trim(),
-      auditq: document.getElementById("auditq").value.trim(),
-      blockers: document.getElementById("blockers").value.trim(),
-      consent: document.getElementById("consent").checked
+      role: val("role"),
+      industry: val("industry"),
+      size: val("size"),
+//      contact: val("contact"),
+      auditq: val("auditq"),
+      current: val("current"),
+      blockers: val("blockers"),
+      consent: checked("consent")
     };
   }
 
   function validate(fields) {
-    // Bootstrap validation UI
-    const ok = fields.role && fields.industry && fields.size && fields.auditq && fields.blockers && fields.consent;
-    return ok;
+    // Minimal required set (matches updated HTML):
+    // - auditq required
+    // - consent required
+    return !!(fields.auditq && fields.consent);
   }
+
+  if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -62,35 +86,37 @@ function templateBody(fields) {
     const subject = "Validation feedback: Policy-First Browser Telemetry";
     const body = templateBody(fields);
 
-    // If the user provided a contact email, include it in the body only.
     // No backend storage—this opens the user's mail client.
     window.location.href = buildMailto(subject, body);
   });
 
-  copyLink.addEventListener("click", async (e) => {
-    e.preventDefault();
-    const fields = getFields();
+  if (copyLink) {
+    copyLink.addEventListener("click", async (e) => {
+      e.preventDefault();
 
-    const subject = "Validation feedback: Policy-First Browser Telemetry";
-    const body = templateBody({
-      role: fields.role || "(your role)",
-      industry: fields.industry || "(your industry)",
-      size: fields.size || "(company size)",
-      //contact: fields.contact || "",
-      auditq: fields.auditq || "(answer here)",
-      blockers: fields.blockers || "(answer here)",
-      consent: true
-    });
+      const fields = getFields();
+      const subject = "Validation feedback: Policy-First Browser Telemetry";
+      const body = templateBody({
+        role: fields.role || "(not provided)",
+        industry: fields.industry || "(not provided)",
+        size: fields.size || "(not provided)",
+//        contact: fields.contact || "(not provided)",
+        auditq: fields.auditq || "(not provided)",
+        current: fields.current || "(not provided)",
+        blockers: fields.blockers || "(not provided)",
+        consent: true
+      });
 
-    const text = `Subject: ${subject}\n\n${body}`;
+      const text = `Subject: ${subject}\n\n${body}`;
 
-    try {
-      await navigator.clipboard.writeText(text);
-      copyLink.textContent = "copied";
-      setTimeout(() => (copyLink.textContent = "copy the message template"), 1500);
-    } catch {
+      try {
+        await navigator.clipboard.writeText(text);
+        copyLink.textContent = "copied";
+        setTimeout(() => (copyLink.textContent = "copy the message template"), 1500);
+      } catch {
       // Fallback: select via prompt
-      window.prompt("Copy this message:", text);
-    }
-  });
+        window.prompt("Copy this message:", text);
+      }
+    });
+  }
 })();
